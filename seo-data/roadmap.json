@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "json-formatter",
+    "priorityScore": 7.57,
+    "recommendedAction": "build-related-tools"
+  },
+  {
+    "slug": "currency-converter",
+    "priorityScore": 0,
+    "recommendedAction": "leave-stable"
+  },
+  {
+    "slug": "password-generator",
+    "priorityScore": 0,
+    "recommendedAction": "leave-stable"
+  },
+  {
+    "slug": "qr-code-generator",
+    "priorityScore": 0,
+    "recommendedAction": "leave-stable"
+  },
+  {
+    "slug": "qr-generator",
+    "priorityScore": 0,
+    "recommendedAction": "leave-stable"
+  },
+  {
+    "slug": "time-zone-converter",
+    "priorityScore": 0,
+    "recommendedAction": "leave-stable"
+  },
+  {
+    "slug": "temperature-converter",
+    "priorityScore": 0,
+    "recommendedAction": "leave-stable"
+  }
+]

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Qr Code Generator Online</title>
+  <meta name="description" content="Free online qr code generator tool for quick browser-based results.">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Qr Code Generator Online</h1>
+      <h2>Use this qr code generator for fast, accurate results.</h2>
+      
+
+      <div id="tool">
+        <input id="input" type="text" placeholder="https://example.com">
+<div class="actions">
+  <button onclick="generateQr()">Generate QR Code</button>
+</div>
+<div class="qr-wrap result-box">
+  <img id="qr" alt="Generated QR code" hidden>
+</div>
+
+<script>
+function generateQr() {
+  const value = document.getElementById("input").value.trim();
+  const img = document.getElementById("qr");
+  if (!value) {
+    img.removeAttribute("src");
+    img.hidden = true;
+    return;
+  }
+  img.src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+    encodeURIComponent(value);
+  img.hidden = false;
+}
+</script>
+      </div>
+      
+<h3>Related Tools</h3>
+<ul class="tool-list">
+  <li><a href="currency-converter.html">Currency Converter Online</a></li>
+  <li><a href="json-formatter.html">JSON Formatter Online</a></li>
+  <li><a href="password-generator.html">Password Generator Online</a></li>
+  <li><a href="time-zone-converter.html">Time Zone Converter Online</a></li>
+  <li><a href="temperature-converter.html">Temperature Converter Online</a></li>
+</ul>
+
+
+      <div id="ads">
+        <!-- Ads go here when traffic threshold is reached -->
+      </div>
+
+      <h2>How it works</h2>
+      <p class="how-it-works">Enter your input, run the qr code generator, and copy the result instantly.</p>
+      <p class="how-it-works">While every attempt has been made to ensure accuracy, all figures supplied are estimates at the time of generation only.</p>
+
+      <nav class="bottom-links" aria-label="Internal links">
+        <a href="../index.html">Home</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

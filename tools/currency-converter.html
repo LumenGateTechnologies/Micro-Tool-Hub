@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Currency Converter Online</title>
+  <meta name="description" content="Free online currency converter tool for quick browser-based results.">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Currency Converter Online</h1>
+      <h2>Use this currency converter for fast, accurate results.</h2>
+      
+
+      <div id="tool">
+        <input id="amount" type="number" placeholder="Amount" value="1">
+<select id="fromCurrency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+  <option value="GBP">GBP</option>
+  <option value="AUD">AUD</option>
+  <option value="THB">THB</option>
+  <option value="VND">VND</option>
+  <option value="IDR">IDR</option>
+  <option value="CNY">CNY</option>
+  <option value="SGD">SGD</option>
+  <option value="JPY">JPY</option>
+</select>
+<select id="toCurrency">
+  <option value="EUR">EUR</option>
+  <option value="USD">USD</option>
+  <option value="GBP">GBP</option>
+  <option value="AUD">AUD</option>
+  <option value="THB">THB</option>
+  <option value="VND">VND</option>
+  <option value="IDR">IDR</option>
+  <option value="CNY">CNY</option>
+  <option value="SGD">SGD</option>
+  <option value="JPY">JPY</option>
+</select>
+<div class="actions">
+  <button onclick="convertCurrency()">Convert Currency</button>
+</div>
+<p id="output" class="result-box"></p>
+<p id="rateMeta" class="message"></p>
+
+<script>
+const fallbackRates = {
+    USD: 1,
+    EUR: 0.92,
+    GBP: 0.79,
+    AUD: 1.52,
+    THB: 36.6,
+    VND: 25400,
+    IDR: 16200,
+    CNY: 7.24,
+    SGD: 1.35,
+    JPY: 155.0
+};
+
+async function fetchLiveRate(from, to) {
+  const url =
+    "https://api.frankfurter.app/latest?from=" +
+    encodeURIComponent(from) +
+    "&to=" +
+    encodeURIComponent(to);
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Live rate request failed");
+  }
+  const data = await response.json();
+  if (!data || !data.rates || typeof data.rates[to] !== "number") {
+    throw new Error("Live rate missing");
+  }
+  return { rate: data.rates[to], date: data.date || "" };
+}
+
+function convertWithFallback(amount, from, to) {
+  const baseValue = amount / fallbackRates[from];
+  return baseValue * fallbackRates[to];
+}
+
+async function convertCurrency() {
+  const amount = Number(document.getElementById("amount").value);
+  const from = document.getElementById("fromCurrency").value;
+  const to = document.getElementById("toCurrency").value;
+  const output = document.getElementById("output");
+  const rateMeta = document.getElementById("rateMeta");
+
+  if (!Number.isFinite(amount)) {
+    output.textContent = "Enter a valid amount.";
+    rateMeta.textContent = "";
+    return;
+  }
+
+  if (from === to) {
+    output.textContent = amount.toFixed(2) + " " + from + " = " + amount.toFixed(2) + " " + to;
+    rateMeta.textContent = "Same currency selected.";
+    return;
+  }
+
+  try {
+    const live = await fetchLiveRate(from, to);
+    const convertedLive = amount * live.rate;
+    output.textContent = amount.toFixed(2) + " " + from + " = " + convertedLive.toFixed(2) + " " + to;
+    rateMeta.textContent = "Live rate source: Frankfurter" + (live.date ? " (" + live.date + ")" : "");
+  } catch (_err) {
+    const convertedFallback = convertWithFallback(amount, from, to);
+    output.textContent = amount.toFixed(2) + " " + from + " = " + convertedFallback.toFixed(2) + " " + to;
+    rateMeta.textContent = "Using fallback rates (live service unavailable).";
+  }
+}
+</script>
+      </div>
+      
+<h3>Related Tools</h3>
+<ul class="tool-list">
+  <li><a href="json-formatter.html">JSON Formatter Online</a></li>
+  <li><a href="password-generator.html">Password Generator Online</a></li>
+  <li><a href="qr-code-generator.html">Qr Code Generator Online</a></li>
+  <li><a href="time-zone-converter.html">Time Zone Converter Online</a></li>
+  <li><a href="temperature-converter.html">Temperature Converter Online</a></li>
+</ul>
+
+
+      <div id="ads">
+        <!-- Ads go here when traffic threshold is reached -->
+      </div>
+
+      <h2>How it works</h2>
+      <p class="how-it-works">Enter your input, run the currency converter, and copy the result instantly.</p>
+      <p class="how-it-works">While every attempt has been made to ensure accuracy, all figures supplied are estimates at the time of generation only.</p>
+
+      <nav class="bottom-links" aria-label="Internal links">
+        <a href="../index.html">Home</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

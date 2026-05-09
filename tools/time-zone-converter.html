@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Time Zone Converter Online</title>
+  <meta name="description" content="Free online time zone converter tool for quick browser-based results.">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Time Zone Converter Online</h1>
+      <h2>Use this time zone converter for fast, accurate results.</h2>
+      
+
+      <div id="tool">
+        <label for="baseTime">Time</label>
+<input id="baseTime" type="time" value="12:00">
+<select id="fromZone">
+  <option value="PERTH">Perth (AWST, UTC+8)</option>
+  <option value="ADL">Adelaide (ACST, UTC+9:30)</option>
+  <option value="DRW">Darwin (ACST, UTC+9:30)</option>
+  <option value="MEL">Melbourne (AEST, UTC+10)</option>
+  <option value="SYD">Sydney (AEST, UTC+10)</option>
+  <option value="BNE">Brisbane (AEST, UTC+10)</option>
+  <option value="UTC">UTC</option>
+  <option value="AEST">AEST (UTC+10)</option>
+  <option value="AWST">AWST (UTC+8)</option>
+  <option value="THA">Thailand (UTC+7)</option>
+  <option value="WIB">Indonesia WIB (UTC+7)</option>
+  <option value="SGT">Singapore (UTC+8)</option>
+  <option value="CST">China (UTC+8)</option>
+  <option value="ICT">Vietnam (UTC+7)</option>
+  <option value="JST">Japan (UTC+9)</option>
+</select>
+<select id="toZone">
+  <option value="PERTH">Perth (AWST, UTC+8)</option>
+  <option value="ADL">Adelaide (ACST, UTC+9:30)</option>
+  <option value="DRW">Darwin (ACST, UTC+9:30)</option>
+  <option value="MEL">Melbourne (AEST, UTC+10)</option>
+  <option value="SYD">Sydney (AEST, UTC+10)</option>
+  <option value="BNE">Brisbane (AEST, UTC+10)</option>
+  <option value="UTC">UTC</option>
+  <option value="AEST">AEST (UTC+10)</option>
+  <option value="AWST">AWST (UTC+8)</option>
+  <option value="THA">Thailand (UTC+7)</option>
+  <option value="WIB">Indonesia WIB (UTC+7)</option>
+  <option value="SGT">Singapore (UTC+8)</option>
+  <option value="CST">China (UTC+8)</option>
+  <option value="ICT">Vietnam (UTC+7)</option>
+  <option value="JST">Japan (UTC+9)</option>
+</select>
+<div class="actions">
+  <button onclick="convertTimeZone()">Convert Time Zone</button>
+</div>
+<p id="output" class="result-box"></p>
+
+<script>
+function convertTimeZone() {
+  const offsets = {
+    PERTH: 8,
+    ADL: 9.5,
+    DRW: 9.5,
+    MEL: 10,
+    SYD: 10,
+    BNE: 10,
+    UTC: 0,
+    AEST: 10,
+    AWST: 8,
+    THA: 7,
+    WIB: 7,
+    SGT: 8,
+    CST: 8,
+    ICT: 7,
+    JST: 9
+  };
+  const time = document.getElementById("baseTime").value;
+  const from = document.getElementById("fromZone").value;
+  const to = document.getElementById("toZone").value;
+  const output = document.getElementById("output");
+  if (!time) {
+    output.textContent = "Select a time first.";
+    return;
+  }
+  const parts = time.split(":");
+  const totalMinutes = Number(parts[0]) * 60 + Number(parts[1]);
+  const utcMinutes = totalMinutes - offsets[from] * 60;
+  const targetMinutesRaw = utcMinutes + offsets[to] * 60;
+  const targetMinutes = ((targetMinutesRaw % 1440) + 1440) % 1440;
+  const hours = Math.floor(targetMinutes / 60).toString().padStart(2, "0");
+  const minutes = (targetMinutes % 60).toString().padStart(2, "0");
+  output.textContent = "Converted time: " + hours + ":" + minutes + " (" + to + ")";
+}
+</script>
+      </div>
+      
+<h3>Related Tools</h3>
+<ul class="tool-list">
+  <li><a href="currency-converter.html">Currency Converter Online</a></li>
+  <li><a href="json-formatter.html">JSON Formatter Online</a></li>
+  <li><a href="password-generator.html">Password Generator Online</a></li>
+  <li><a href="qr-code-generator.html">Qr Code Generator Online</a></li>
+  <li><a href="temperature-converter.html">Temperature Converter Online</a></li>
+</ul>
+
+
+      <div id="ads">
+        <!-- Ads go here when traffic threshold is reached -->
+      </div>
+
+      <h2>How it works</h2>
+      <p class="how-it-works">Enter your input, run the time zone converter, and copy the result instantly.</p>
+      <p class="how-it-works">While every attempt has been made to ensure accuracy, all figures supplied are estimates at the time of generation only.</p>
+
+      <nav class="bottom-links" aria-label="Internal links">
+        <a href="../index.html">Home</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,96 @@
+[
+  {
+    "slug": "currency-converter",
+    "title": "Currency Converter Online",
+    "description": "Free online currency converter tool for quick browser-based results.",
+    "h1": "Currency Converter Online",
+    "subtitle": "Use this currency converter for fast, accurate results.",
+    "howItWorks": "Enter your input, run the currency converter, and copy the result instantly.",
+    "uiType": "converter-basic",
+    "seoScore": 9,
+    "revenueScore": 9,
+    "totalScore": 9
+  },
+  {
+    "slug": "json-formatter",
+    "title": "JSON Formatter Online",
+    "description": "Free online JSON formatter and validator",
+    "keywords": [
+      "json formatter",
+      "json validator",
+      "format json online"
+    ],
+    "h1": "JSON Formatter Online",
+    "subtitle": "Format and validate JSON instantly",
+    "howItWorks": "Paste JSON, click format, and get structured output.",
+    "uiType": "json-formatter",
+    "seoScore": 9,
+    "revenueScore": 8,
+    "totalScore": 8.6
+  },
+  {
+    "slug": "password-generator",
+    "title": "Password Generator Online",
+    "description": "Free online password generator tool for quick browser-based results.",
+    "h1": "Password Generator Online",
+    "subtitle": "Use this password generator for fast, accurate results.",
+    "howItWorks": "Enter your input, run the password generator, and copy the result instantly.",
+    "uiType": "generator-basic",
+    "seoScore": 9,
+    "revenueScore": 7,
+    "totalScore": 8.2
+  },
+  {
+    "slug": "qr-code-generator",
+    "title": "Qr Code Generator Online",
+    "description": "Free online qr code generator tool for quick browser-based results.",
+    "h1": "Qr Code Generator Online",
+    "subtitle": "Use this qr code generator for fast, accurate results.",
+    "howItWorks": "Enter your input, run the qr code generator, and copy the result instantly.",
+    "uiType": "qr-generator",
+    "seoScore": 9,
+    "revenueScore": 7,
+    "totalScore": 8.2
+  },
+  {
+    "slug": "qr-generator",
+    "title": "QR Code Generator Online",
+    "description": "Generate QR codes instantly from text or URLs",
+    "keywords": [
+      "qr code generator",
+      "generate qr code online",
+      "text to qr code"
+    ],
+    "h1": "QR Code Generator",
+    "subtitle": "Create QR codes instantly",
+    "howItWorks": "Enter text or URL -> generate QR code.",
+    "uiType": "qr-generator",
+    "seoScore": 9,
+    "revenueScore": 7,
+    "totalScore": 8.2
+  },
+  {
+    "slug": "time-zone-converter",
+    "title": "Time Zone Converter Online",
+    "description": "Free online time zone converter tool for quick browser-based results.",
+    "h1": "Time Zone Converter Online",
+    "subtitle": "Use this time zone converter for fast, accurate results.",
+    "howItWorks": "Enter your input, run the time zone converter, and copy the result instantly.",
+    "uiType": "converter-basic",
+    "seoScore": 9,
+    "revenueScore": 7,
+    "totalScore": 8.2
+  },
+  {
+    "slug": "temperature-converter",
+    "title": "Temperature Converter Online",
+    "description": "Free online temperature converter tool for quick browser-based results.",
+    "h1": "Temperature Converter Online",
+    "subtitle": "Use this temperature converter for fast, accurate results.",
+    "howItWorks": "Enter your input, run the temperature converter, and copy the result instantly.",
+    "uiType": "converter-basic",
+    "seoScore": 9,
+    "revenueScore": 4,
+    "totalScore": 7
+  }
+]
